@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfApp8.Drink_Redact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp8"
+        mc:Ignorable="d"
+        Title="Drink_Redact" Height="450" Width="150">
+    <Grid Background="#FFC6D4E0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Image x:Name="Drink_pic" Height="106" Width="100"/>
+
+            <Label Content="Название" Width="auto" RenderTransformOrigin="0.5,0.5" BorderThickness="0,50,0,0" Height="77" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="Drink_name" TextWrapping="Wrap" Width="120"/>
+
+            <Button Content="Выберите файл" Margin="0,5,0,0" Width="103" />
+
+            <Label Content="Цена" Width="125"/>
+            <TextBox x:Name="Cost_text" TextWrapping="Wrap" Width="120"/>
+
+            <Label Content="Количество" Width="125"/>
+            <TextBox x:Name="Amount_text" TextWrapping="Wrap" Width="120"/>
+
+        </StackPanel>
+        <Button Content="Сохранить" HorizontalAlignment="Center" Margin="-50,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="71" Height="20"/>
+        <Button Content="Удалить" HorizontalAlignment="Center" Margin="81,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="53" Height="20"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,78 @@
+﻿<Window x:Class="WpfApp8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp8"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000">
+    
+    <!-- Сторонние ресурсы-->
+    <Window.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <Border CornerRadius="10" BorderThickness="1" BorderBrush="Black">
+                <StackPanel Margin="5">
+                    <Image Width="150" Height="100" Source="{Binding Path=Image}" />
+                    <TextBlock FontSize="16" Text="{Binding Name}" HorizontalAlignment="Center" />
+                    <TextBlock FontSize="16" Text="{Binding Cost}" HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="listPanelTemplate">
+            <WrapPanel/>
+        </ItemsPanelTemplate>
+    </Window.Resources>
+    <!-- Сторонние ресурсы-->
+    
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220"/>
+        </Grid.ColumnDefinitions>
+        <!--Первый столбец-->
+        <ListView x:Name="Drinks_list" Grid.Row="0" Grid.Column="0" 
+                 ItemTemplate="{StaticResource listTemplate}"
+                 ItemsPanel="{StaticResource listPanelTemplate}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 SelectionChanged="Drinks_list_SelectionChanged"/>
+        <!--Первый столбец-->
+
+
+        <!--Последний столбец-->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <!--Первая строка -->
+            <Label x:Name="Money_label" Grid.Row="0" Grid.Column="0" Content="0" FontSize="40" HorizontalAlignment="Center" />
+            <!--Первая строка -->
+
+            <!-- Вторая строка -->
+            <Button x:Name="One_button" Grid.Row="1" Grid.Column="0" Margin="20,0,0,0" Width="90" HorizontalAlignment="Left" Content="1" FontSize="40" Click="Money_button_Click" Background="LightGray"/>
+            <Button x:Name="Two_button" Grid.Row="1" Grid.Column="0" Margin="0,0,20,0" Width="90" HorizontalAlignment="Right" Content="2" FontSize="40" Click="Money_button_Click"/>
+            <!-- Вторая строка -->
+
+            <!-- Третья строка -->
+            <Button x:Name="Five_button" Grid.Row="2" Grid.Column="0" Margin="20,0,0,0" Width="90" HorizontalAlignment="Left" Content="5" FontSize="40" Click="Money_button_Click"/>
+            <Button x:Name="Ten_button" Grid.Row="2" Grid.Column="0" Margin="0,0,20,0" Width="90" HorizontalAlignment="Right" Content="10" FontSize="40" Click="Money_button_Click"/>
+            <!-- Третья строка -->
+
+            <!-- Четвёртая строка -->
+            <Label x:Name="Step1_label" Grid.Row="3" Grid.Column="0" Margin="0,0,0,0" Content="1. Внесите деньги" FontSize="22" HorizontalAlignment="Left" />
+            <Label x:Name="Step2_label" Grid.Row="3" Grid.Column="0" Margin="0,50,0,0" Content="2. Выберите напиток" FontSize="22" HorizontalAlignment="Left" />
+            <Label x:Name="Step3_label" Grid.Row="3" Grid.Column="0" Margin="0,100,0,0" Content="3. Получите сдачу" FontSize="22" HorizontalAlignment="Left" />
+            <Button x:Name="adm" Grid.Row="3" Grid.Column="0" Margin="0,0,0,0" Content="Adm" Width="30" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Click ="adm_Click"/>
+            <!-- Четвёртая строка -->
+
+            <!-- Пятая строка -->
+            <Button x:Name="Count_button" Grid.Row="4" Grid.Column="0" Margin="5,5,5,5" Width="150" HorizontalAlignment="Center" Content="Сдача" FontSize="40" Click="Count_button_Click"/>
+            <!-- Пятая строка -->
+        </Grid>
+        <!--Последний столбец-->
+
+    </Grid>
+</Window>
